@@ -13,5 +13,18 @@ jobs:
         run: chmod +x check_site.sh
 
       - name: Test Google (Should Pass)
-        run: ./check_site.sh google.com
+        run: ./check_site.sh nott-exist.com
 
+      - name: Send Email on Failure
+        if: failure()
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          username: ${{ secrets.MAIL_USERNAME }}
+          password: ${{ secrets.MAIL_PASSWORD }}
+          subject: 🚨 ALERT: Site Checker FAILED!
+          body: The site-checker script failed. Please check the logs immediately!
+          to: ${{ secrets.MAIL_USERNAME }}
+          from: DevOps Robot
+          secure: true
