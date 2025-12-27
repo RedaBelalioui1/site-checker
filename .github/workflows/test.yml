@@ -1,6 +1,9 @@
 name: Test Site Checker
 
-on: [push]
+on: 
+  push:                   # Keep running on push
+  schedule:
+    - cron: '*/30 * * * *' # Run every 30 minutes
 
 jobs:
   test-run:
