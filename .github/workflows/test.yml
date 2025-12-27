@@ -13,5 +13,5 @@ jobs:
         run: chmod +x check_site.sh
 
       - name: Test Google (Should Pass)
-        run: ./check_site.sh this-domain-definitely-does-not-exist.com
+        run: ./check_site.sh google.com
 
