@@ -14,4 +14,5 @@ if curl -I -L "$target" 2>&1 | grep -q "200 OK"; then
         echo "The site is UP!"
 else
         echo "The site is DOWN!"
+	exit 1
 fi
