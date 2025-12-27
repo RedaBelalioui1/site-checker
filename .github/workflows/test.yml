@@ -13,7 +13,7 @@ jobs:
         run: chmod +x check_site.sh
 
       - name: Test Google (Should Pass)
-        run: ./check_site.sh nott-exist.com
+        run: ./check_site.sh google.com
 
       - name: Send Email on Failure
         if: failure()
